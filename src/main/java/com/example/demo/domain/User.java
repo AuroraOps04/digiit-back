@@ -11,19 +11,20 @@ import java.util.List;
 @Entity
 @Table(name = "t_user")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer id;
 
-    private String username;
-    private String password;
+  private String username;
+  private String password;
+  private String email;
+  private String avatar;
 
-    @ColumnDefault("user")
-    private String role;
+  @ColumnDefault("user")
+  private String role;
 
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Project.class)
-    @JoinColumn(name = "owner_id")
-    private List<Project> projectList;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Project.class)
+  @JoinColumn(name = "owner_id")
+  private List<Project> projectList;
 
 }
